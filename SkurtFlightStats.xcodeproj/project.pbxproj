@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32AD81B2EFBDE51857DC0FF1 /* libPods-SkurtFlightStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD584836980F804066168CE /* libPods-SkurtFlightStats.a */; };
 		49C3A1B91C823ED800F2F982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1B81C823ED800F2F982 /* main.m */; };
 		49C3A1BC1C823ED800F2F982 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1BB1C823ED800F2F982 /* AppDelegate.m */; };
-		49C3A1BF1C823ED800F2F982 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1BE1C823ED800F2F982 /* ViewController.m */; };
 		49C3A1C21C823ED800F2F982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C3A1C01C823ED800F2F982 /* Main.storyboard */; };
 		49C3A1C51C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1C31C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld */; };
 		49C3A1C71C823ED800F2F982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49C3A1C61C823ED800F2F982 /* Assets.xcassets */; };
 		49C3A1CA1C823ED800F2F982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C3A1C81C823ED800F2F982 /* LaunchScreen.storyboard */; };
 		49C3A1D51C823ED800F2F982 /* SkurtFlightStatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1D41C823ED800F2F982 /* SkurtFlightStatsTests.m */; };
 		49C3A1E01C823ED800F2F982 /* SkurtFlightStatsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1DF1C823ED800F2F982 /* SkurtFlightStatsUITests.m */; };
+		49DD8AC31C82526100D8E33F /* SkurtLaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD8AC21C82526100D8E33F /* SkurtLaunchScreen.png */; };
+		49DD8AC71C8253FE00D8E33F /* ALVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DD8AC61C8253FE00D8E33F /* ALVViewController.m */; };
+		49DD8ACC1C8256DE00D8E33F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DD8ACB1C8256DE00D8E33F /* MainViewController.m */; };
+		49DD8AD31C825CC000D8E33F /* SkurtAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD8AD01C825CC000D8E33F /* SkurtAppIcon.png */; };
+		49DD8AD41C825CC000D8E33F /* SkurtAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD8AD11C825CC000D8E33F /* SkurtAppIcon@2x.png */; };
+		49DD8AD51C825CC000D8E33F /* SkurtAppIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD8AD21C825CC000D8E33F /* SkurtAppIcon@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05D166FC0E5B04CD1F2B42DF /* Pods-SkurtFlightStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkurtFlightStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkurtFlightStats/Pods-SkurtFlightStats.release.xcconfig"; sourceTree = "<group>"; };
 		49C3A1B41C823ED800F2F982 /* SkurtFlightStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkurtFlightStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C3A1B81C823ED800F2F982 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49C3A1BA1C823ED800F2F982 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49C3A1BB1C823ED800F2F982 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		49C3A1BD1C823ED800F2F982 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		49C3A1BE1C823ED800F2F982 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		49C3A1C11C823ED800F2F982 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49C3A1C41C823ED800F2F982 /* SkurtFlightStats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SkurtFlightStats.xcdatamodel; sourceTree = "<group>"; };
 		49C3A1C61C823ED800F2F982 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +58,18 @@
 		49C3A1DB1C823ED800F2F982 /* SkurtFlightStatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkurtFlightStatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C3A1DF1C823ED800F2F982 /* SkurtFlightStatsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkurtFlightStatsUITests.m; sourceTree = "<group>"; };
 		49C3A1E11C823ED800F2F982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49DD8ABA1C82419600D8E33F /* SkurtFlightStats-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SkurtFlightStats-Prefix.pch"; sourceTree = "<group>"; };
+		49DD8AC21C82526100D8E33F /* SkurtLaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkurtLaunchScreen.png; sourceTree = "<group>"; };
+		49DD8AC51C8253FE00D8E33F /* ALVViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVViewController.h; sourceTree = "<group>"; };
+		49DD8AC61C8253FE00D8E33F /* ALVViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVViewController.m; sourceTree = "<group>"; };
+		49DD8ACA1C8256DE00D8E33F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		49DD8ACB1C8256DE00D8E33F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		49DD8ACE1C82594400D8E33F /* BlockDeclarations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockDeclarations.h; sourceTree = "<group>"; };
+		49DD8AD01C825CC000D8E33F /* SkurtAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkurtAppIcon.png; sourceTree = "<group>"; };
+		49DD8AD11C825CC000D8E33F /* SkurtAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SkurtAppIcon@2x.png"; sourceTree = "<group>"; };
+		49DD8AD21C825CC000D8E33F /* SkurtAppIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SkurtAppIcon@3x.png"; sourceTree = "<group>"; };
+		93D76B7F16261C650F6824F3 /* Pods-SkurtFlightStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkurtFlightStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkurtFlightStats/Pods-SkurtFlightStats.debug.xcconfig"; sourceTree = "<group>"; };
+		9DD584836980F804066168CE /* libPods-SkurtFlightStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkurtFlightStats.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32AD81B2EFBDE51857DC0FF1 /* libPods-SkurtFlightStats.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C03E7618B3A1CFD35E68DDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DD584836980F804066168CE /* libPods-SkurtFlightStats.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49C3A1AB1C823ED800F2F982 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +113,8 @@
 				49C3A1D31C823ED800F2F982 /* SkurtFlightStatsTests */,
 				49C3A1DE1C823ED800F2F982 /* SkurtFlightStatsUITests */,
 				49C3A1B51C823ED800F2F982 /* Products */,
+				AFC53FC32CD4A55B35178730 /* Pods */,
+				2C03E7618B3A1CFD35E68DDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,16 +131,18 @@
 		49C3A1B61C823ED800F2F982 /* SkurtFlightStats */ = {
 			isa = PBXGroup;
 			children = (
+				49DD8ABE1C8245E600D8E33F /* Assets */,
+				49DD8ABF1C8245FE00D8E33F /* Utilities */,
+				49DD8ABB1C8245CF00D8E33F /* Models */,
+				49DD8ABC1C8245D500D8E33F /* Views */,
+				49DD8ABD1C8245DA00D8E33F /* Controllers */,
+				49DD8AC01C82461700D8E33F /* Storyboards */,
+				49C3A1B71C823ED800F2F982 /* Supporting Files */,
 				49C3A1BA1C823ED800F2F982 /* AppDelegate.h */,
 				49C3A1BB1C823ED800F2F982 /* AppDelegate.m */,
-				49C3A1BD1C823ED800F2F982 /* ViewController.h */,
-				49C3A1BE1C823ED800F2F982 /* ViewController.m */,
-				49C3A1C01C823ED800F2F982 /* Main.storyboard */,
-				49C3A1C61C823ED800F2F982 /* Assets.xcassets */,
-				49C3A1C81C823ED800F2F982 /* LaunchScreen.storyboard */,
 				49C3A1CB1C823ED800F2F982 /* Info.plist */,
 				49C3A1C31C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld */,
-				49C3A1B71C823ED800F2F982 /* Supporting Files */,
+				49C3A1C61C823ED800F2F982 /* Assets.xcassets */,
 			);
 			path = SkurtFlightStats;
 			sourceTree = "<group>";
@@ -120,7 +150,9 @@
 		49C3A1B71C823ED800F2F982 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49DD8ACD1C82592500D8E33F /* Headers */,
 				49C3A1B81C823ED800F2F982 /* main.m */,
+				49DD8ABA1C82419600D8E33F /* SkurtFlightStats-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,6 +175,91 @@
 			path = SkurtFlightStatsUITests;
 			sourceTree = "<group>";
 		};
+		49DD8ABB1C8245CF00D8E33F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		49DD8ABC1C8245D500D8E33F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		49DD8ABD1C8245DA00D8E33F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				49DD8ACA1C8256DE00D8E33F /* MainViewController.h */,
+				49DD8ACB1C8256DE00D8E33F /* MainViewController.m */,
+				49DD8AC51C8253FE00D8E33F /* ALVViewController.h */,
+				49DD8AC61C8253FE00D8E33F /* ALVViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		49DD8ABE1C8245E600D8E33F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				49DD8ACF1C825CB900D8E33F /* App Icons */,
+				49DD8AC11C82525900D8E33F /* Launch */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		49DD8ABF1C8245FE00D8E33F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		49DD8AC01C82461700D8E33F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				49C3A1C81C823ED800F2F982 /* LaunchScreen.storyboard */,
+				49C3A1C01C823ED800F2F982 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		49DD8AC11C82525900D8E33F /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				49DD8AC21C82526100D8E33F /* SkurtLaunchScreen.png */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
+		49DD8ACD1C82592500D8E33F /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				49DD8ACE1C82594400D8E33F /* BlockDeclarations.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		49DD8ACF1C825CB900D8E33F /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				49DD8AD01C825CC000D8E33F /* SkurtAppIcon.png */,
+				49DD8AD11C825CC000D8E33F /* SkurtAppIcon@2x.png */,
+				49DD8AD21C825CC000D8E33F /* SkurtAppIcon@3x.png */,
+			);
+			name = "App Icons";
+			sourceTree = "<group>";
+		};
+		AFC53FC32CD4A55B35178730 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93D76B7F16261C650F6824F3 /* Pods-SkurtFlightStats.debug.xcconfig */,
+				05D166FC0E5B04CD1F2B42DF /* Pods-SkurtFlightStats.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +267,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49C3A1E41C823ED800F2F982 /* Build configuration list for PBXNativeTarget "SkurtFlightStats" */;
 			buildPhases = (
+				15B216468CB4DB212C6F4DF8 /* Check Pods Manifest.lock */,
 				49C3A1B01C823ED800F2F982 /* Sources */,
 				49C3A1B11C823ED800F2F982 /* Frameworks */,
 				49C3A1B21C823ED800F2F982 /* Resources */,
+				CA6E9083D69A88A878A083D5 /* Embed Pods Frameworks */,
+				8CF8D4F549D4E7CF2A380643 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,9 +366,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DD8AC31C82526100D8E33F /* SkurtLaunchScreen.png in Resources */,
+				49DD8AD31C825CC000D8E33F /* SkurtAppIcon.png in Resources */,
 				49C3A1CA1C823ED800F2F982 /* LaunchScreen.storyboard in Resources */,
 				49C3A1C71C823ED800F2F982 /* Assets.xcassets in Resources */,
 				49C3A1C21C823ED800F2F982 /* Main.storyboard in Resources */,
+				49DD8AD41C825CC000D8E33F /* SkurtAppIcon@2x.png in Resources */,
+				49DD8AD51C825CC000D8E33F /* SkurtAppIcon@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,14 +392,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		15B216468CB4DB212C6F4DF8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8CF8D4F549D4E7CF2A380643 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkurtFlightStats/Pods-SkurtFlightStats-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA6E9083D69A88A878A083D5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkurtFlightStats/Pods-SkurtFlightStats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		49C3A1B01C823ED800F2F982 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C3A1BF1C823ED800F2F982 /* ViewController.m in Sources */,
+				49DD8AC71C8253FE00D8E33F /* ALVViewController.m in Sources */,
 				49C3A1BC1C823ED800F2F982 /* AppDelegate.m in Sources */,
 				49C3A1B91C823ED800F2F982 /* main.m in Sources */,
+				49DD8ACC1C8256DE00D8E33F /* MainViewController.m in Sources */,
 				49C3A1C51C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,23 +588,31 @@
 		};
 		49C3A1E51C823ED800F2F982 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93D76B7F16261C650F6824F3 /* Pods-SkurtFlightStats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SkurtFlightStats-Prefix.pch";
 				INFOPLIST_FILE = SkurtFlightStats/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ALV.SkurtFlightStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		49C3A1E61C823ED800F2F982 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05D166FC0E5B04CD1F2B42DF /* Pods-SkurtFlightStats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/SkurtFlightStats-Prefix.pch";
 				INFOPLIST_FILE = SkurtFlightStats/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ALV.SkurtFlightStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -502,6 +683,7 @@
 				49C3A1E61C823ED800F2F982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49C3A1E71C823ED800F2F982 /* Build configuration list for PBXNativeTarget "SkurtFlightStatsTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +692,7 @@
 				49C3A1E91C823ED800F2F982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49C3A1EA1C823ED800F2F982 /* Build configuration list for PBXNativeTarget "SkurtFlightStatsUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +701,7 @@
 				49C3A1EC1C823ED800F2F982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

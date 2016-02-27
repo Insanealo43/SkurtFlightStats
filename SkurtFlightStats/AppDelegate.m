@@ -14,9 +14,13 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Configure Window
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window makeKeyAndVisible];
+    
+    // Show the status bar
+    
     return YES;
 }
 

@@ -1,0 +1,26 @@
+//
+//  SkurtFlightStats-Prefix.pch
+//  SkurtFlightStats
+//
+//  Created by Andrew Lopez-Vass on 2/27/16.
+//  Copyright © 2016 Andrew Lopez-Vass. All rights reserved.
+//
+
+#ifndef SkurtFlightStats_Prefix_pch
+#define SkurtFlightStats_Prefix_pch
+
+#ifdef __OBJC__
+
+// Standard Libraries
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+// Cocoapods Dependencies
+#import <pop/POP.h>
+
+// Headers
+#import "BlockDeclarations.h"
+
+#endif
+
+#endif /* SkurtFlightStats_Prefix_pch */
