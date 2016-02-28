@@ -89,7 +89,6 @@
 
 - (IBAction)stopEditing:(UIButton *)sender {
     [_textField resignFirstResponder];
-    _closeButton.hidden = YES;
 }
 
 - (void)textFieldStartedEditing:(NSNotification *)notification {
@@ -97,6 +96,7 @@
 }
 
 - (void)textFieldFinishedEditing:(NSNotification *)notification {
+    _closeButton.hidden = YES;
     if (_enableViewTap) {
         _textField.enabled = NO;
     }

@@ -19,6 +19,7 @@ static const CGFloat kBorderHeight = 1.5;
 
 @property (weak, nonatomic) IBOutlet ALVTitledTextFieldView *titledTextFieldView;
 @property (weak, nonatomic) IBOutlet ALVButton *searchButton;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ConstraintButtonBottomMargin;
 @property (assign, nonatomic) CGFloat constant;
 
