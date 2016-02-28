@@ -8,11 +8,31 @@
 
 #import "AppDelegate.h"
 
+static NSString *const kFlightStatsAppId = @"91b929e6";
+static NSString *const kFlightStatsKey = @"is2eebba75c50ce13c31b9ef0b331fb93a";
+
 @interface AppDelegate ()
+
+@property (strong, nonatomic) NSURLSession *session;
 
 @end
 
 @implementation AppDelegate
+
+- (NSURLSession *)session {
+    if (!_session) {
+        NSMutableDictionary *additionalHTTPHeader = [NSMutableDictionary dictionary];
+        [additionalHTTPHeader setObject:@"application/json" forKey:@"Content-Type"];
+        [additionalHTTPHeader setObject:@"application/json" forKey:@"Accept"];
+        [additionalHTTPHeader setObject:kFlightStatsAppId forKey:@"appId"];
+        [additionalHTTPHeader setObject:kFlightStatsKey forKey:@"appKey"];
+        
+        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+        [sessionConfig setHTTPAdditionalHeaders:additionalHTTPHeader];
+        
+    }
+    return _session;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Configure Window

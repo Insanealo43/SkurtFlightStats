@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		32AD81B2EFBDE51857DC0FF1 /* libPods-SkurtFlightStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD584836980F804066168CE /* libPods-SkurtFlightStats.a */; };
+		49B6C2A51C826601002B6900 /* ALVNetworker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A41C826601002B6900 /* ALVNetworker.m */; };
+		49B6C2A91C826C8F002B6900 /* FlightStatsHTTPReqest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A81C826C8F002B6900 /* FlightStatsHTTPReqest.m */; };
 		49C3A1B91C823ED800F2F982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1B81C823ED800F2F982 /* main.m */; };
 		49C3A1BC1C823ED800F2F982 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1BB1C823ED800F2F982 /* AppDelegate.m */; };
 		49C3A1C21C823ED800F2F982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49C3A1C01C823ED800F2F982 /* Main.storyboard */; };
@@ -43,6 +45,10 @@
 
 /* Begin PBXFileReference section */
 		05D166FC0E5B04CD1F2B42DF /* Pods-SkurtFlightStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkurtFlightStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkurtFlightStats/Pods-SkurtFlightStats.release.xcconfig"; sourceTree = "<group>"; };
+		49B6C2A31C826601002B6900 /* ALVNetworker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVNetworker.h; sourceTree = "<group>"; };
+		49B6C2A41C826601002B6900 /* ALVNetworker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVNetworker.m; sourceTree = "<group>"; };
+		49B6C2A71C826C8F002B6900 /* FlightStatsHTTPReqest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatsHTTPReqest.h; sourceTree = "<group>"; };
+		49B6C2A81C826C8F002B6900 /* FlightStatsHTTPReqest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightStatsHTTPReqest.m; sourceTree = "<group>"; };
 		49C3A1B41C823ED800F2F982 /* SkurtFlightStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkurtFlightStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C3A1B81C823ED800F2F982 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		49C3A1BA1C823ED800F2F982 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +110,17 @@
 				9DD584836980F804066168CE /* libPods-SkurtFlightStats.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49B6C2A61C82677E002B6900 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				49B6C2A31C826601002B6900 /* ALVNetworker.h */,
+				49B6C2A41C826601002B6900 /* ALVNetworker.m */,
+				49B6C2A71C826C8F002B6900 /* FlightStatsHTTPReqest.h */,
+				49B6C2A81C826C8F002B6900 /* FlightStatsHTTPReqest.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		49C3A1AB1C823ED800F2F982 = {
@@ -178,6 +195,7 @@
 		49DD8ABB1C8245CF00D8E33F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				49B6C2A61C82677E002B6900 /* Networking */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -445,11 +463,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B6C2A91C826C8F002B6900 /* FlightStatsHTTPReqest.m in Sources */,
 				49DD8AC71C8253FE00D8E33F /* ALVViewController.m in Sources */,
 				49C3A1BC1C823ED800F2F982 /* AppDelegate.m in Sources */,
 				49C3A1B91C823ED800F2F982 /* main.m in Sources */,
 				49DD8ACC1C8256DE00D8E33F /* MainViewController.m in Sources */,
 				49C3A1C51C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld in Sources */,
+				49B6C2A51C826601002B6900 /* ALVNetworker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
