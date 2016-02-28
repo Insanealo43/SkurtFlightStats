@@ -22,7 +22,7 @@
 		493FAC6A1C83A77600166D9C /* UIResponder+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC691C83A77600166D9C /* UIResponder+additions.m */; };
 		493FAC6D1C83A96000166D9C /* UIView+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC6C1C83A96000166D9C /* UIView+additions.m */; };
 		493FAC711C83B77C00166D9C /* ALVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC701C83B77C00166D9C /* ALVTextField.m */; };
-		493FAC731C83BB5100166D9C /* close_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493FAC721C83BB5100166D9C /* close_icon.png */; };
+		493FAC751C83BF0B00166D9C /* close_clear_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493FAC741C83BF0B00166D9C /* close_clear_icon.png */; };
 		49B6C2A51C826601002B6900 /* ALVNetworker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A41C826601002B6900 /* ALVNetworker.m */; };
 		49B6C2A91C826C8F002B6900 /* FlightStatsHTTPReqest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A81C826C8F002B6900 /* FlightStatsHTTPReqest.m */; };
 		49C3A1B91C823ED800F2F982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1B81C823ED800F2F982 /* main.m */; };
@@ -85,7 +85,7 @@
 		493FAC6C1C83A96000166D9C /* UIView+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+additions.m"; sourceTree = "<group>"; };
 		493FAC6F1C83B77C00166D9C /* ALVTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVTextField.h; sourceTree = "<group>"; };
 		493FAC701C83B77C00166D9C /* ALVTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVTextField.m; sourceTree = "<group>"; };
-		493FAC721C83BB5100166D9C /* close_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_icon.png; sourceTree = "<group>"; };
+		493FAC741C83BF0B00166D9C /* close_clear_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_clear_icon.png; sourceTree = "<group>"; };
 		49B6C2A31C826601002B6900 /* ALVNetworker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVNetworker.h; sourceTree = "<group>"; };
 		49B6C2A41C826601002B6900 /* ALVNetworker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVNetworker.m; sourceTree = "<group>"; };
 		49B6C2A71C826C8F002B6900 /* FlightStatsHTTPReqest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatsHTTPReqest.h; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 				493FAC451C83895D00166D9C /* Fonts */,
 				49DD8ACF1C825CB900D8E33F /* App Icons */,
 				49DD8AC11C82525900D8E33F /* Launch */,
-				493FAC721C83BB5100166D9C /* close_icon.png */,
+				493FAC741C83BF0B00166D9C /* close_clear_icon.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -492,8 +492,8 @@
 				49C3A1C71C823ED800F2F982 /* Assets.xcassets in Resources */,
 				49C3A1C21C823ED800F2F982 /* Main.storyboard in Resources */,
 				49DD8AD41C825CC000D8E33F /* SkurtAppIcon@2x.png in Resources */,
-				493FAC731C83BB5100166D9C /* close_icon.png in Resources */,
 				49DD8AD51C825CC000D8E33F /* SkurtAppIcon@3x.png in Resources */,
+				493FAC751C83BF0B00166D9C /* close_clear_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

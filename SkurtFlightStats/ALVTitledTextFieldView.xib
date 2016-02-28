@@ -66,7 +66,7 @@
                         <constraint firstAttribute="width" secondItem="8ee-dO-CSK" secondAttribute="height" multiplier="1:1" id="Lyg-TS-ESz"/>
                         <constraint firstAttribute="width" secondItem="8ee-dO-CSK" secondAttribute="height" multiplier="1:1" id="PC8-AY-NXF"/>
                     </constraints>
-                    <state key="normal" backgroundImage="close_icon.png"/>
+                    <state key="normal" backgroundImage="close_clear_icon.png"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="Lyg-TS-ESz"/>
@@ -109,6 +109,6 @@
         </view>
     </objects>
     <resources>
-        <image name="close_icon.png" width="28" height="28"/>
+        <image name="close_clear_icon.png" width="28" height="28"/>
     </resources>
 </document>
