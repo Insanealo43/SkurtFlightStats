@@ -16,7 +16,8 @@
                 <userDefinedRuntimeAttribute type="boolean" keyPath="enableViewTap" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="textField" destination="9wR-tE-6qX" id="VqN-l2-23D"/>
+                <outlet property="closeButton" destination="8ee-dO-CSK" id="cgo-mG-wOM"/>
+                <outlet property="textField" destination="9wR-tE-6qX" id="rQq-MG-vw7"/>
                 <outlet property="titleLabel" destination="CIB-GO-g6E" id="Sxv-Ze-LHy"/>
                 <outlet property="touchButton" destination="eng-6p-8fQ" id="jmf-0z-ycO"/>
             </connections>
@@ -46,14 +47,35 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wR-tE-6qX">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9wR-tE-6qX" customClass="ALVTextField">
                     <rect key="frame" x="35" y="27" width="305" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="9wR-tE-6qX" secondAttribute="height" multiplier="305:22" id="VJe-SM-c69"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                            <color key="value" red="0.32549020649999999" green="0.32549020649999999" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </textField>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ee-dO-CSK">
+                    <rect key="frame" x="340" y="18" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8ee-dO-CSK" secondAttribute="height" multiplier="1:1" id="Lyg-TS-ESz"/>
+                        <constraint firstAttribute="width" secondItem="8ee-dO-CSK" secondAttribute="height" multiplier="1:1" id="PC8-AY-NXF"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="close_icon.png"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Lyg-TS-ESz"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <action selector="stopEditing:" destination="-1" eventType="touchUpInside" id="Bz1-kH-wF3"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -63,6 +85,9 @@
                 <constraint firstItem="9wR-tE-6qX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="8bS-eK-vMW"/>
                 <constraint firstAttribute="trailing" secondItem="CIB-GO-g6E" secondAttribute="trailing" constant="35" id="9r7-rH-dEy"/>
                 <constraint firstItem="CIB-GO-g6E" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="305:54" id="BOl-A2-VAZ"/>
+                <constraint firstItem="8ee-dO-CSK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:3" id="Khr-pq-mUS"/>
+                <constraint firstItem="8ee-dO-CSK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="14:27" id="L11-ns-4yF"/>
+                <constraint firstItem="8ee-dO-CSK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="OG9-qZ-9zg"/>
                 <constraint firstAttribute="bottom" secondItem="9wR-tE-6qX" secondAttribute="bottom" constant="5" id="PFJ-k7-dgJ"/>
                 <constraint firstItem="CIB-GO-g6E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Ur4-qd-ZOr"/>
                 <constraint firstItem="9wR-tE-6qX" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="305:54" id="VhO-iy-JwT"/>
@@ -70,11 +95,20 @@
                 <constraint firstItem="CIB-GO-g6E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="fin-fR-bTP"/>
                 <constraint firstItem="eng-6p-8fQ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="hCu-w8-pML"/>
                 <constraint firstItem="CIB-GO-g6E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="o4T-sq-gFe"/>
+                <constraint firstAttribute="trailing" secondItem="8ee-dO-CSK" secondAttribute="trailing" constant="17" id="ufi-nA-mDl"/>
                 <constraint firstAttribute="trailing" secondItem="9wR-tE-6qX" secondAttribute="trailing" constant="35" id="xro-0I-PPL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="L11-ns-4yF"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="389.5" y="248"/>
         </view>
     </objects>
+    <resources>
+        <image name="close_icon.png" width="28" height="28"/>
+    </resources>
 </document>

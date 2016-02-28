@@ -21,6 +21,8 @@
 		493FAC671C83A71600166D9C /* ALVKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC661C83A71600166D9C /* ALVKeyboardObserver.m */; };
 		493FAC6A1C83A77600166D9C /* UIResponder+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC691C83A77600166D9C /* UIResponder+additions.m */; };
 		493FAC6D1C83A96000166D9C /* UIView+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC6C1C83A96000166D9C /* UIView+additions.m */; };
+		493FAC711C83B77C00166D9C /* ALVTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC701C83B77C00166D9C /* ALVTextField.m */; };
+		493FAC731C83BB5100166D9C /* close_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 493FAC721C83BB5100166D9C /* close_icon.png */; };
 		49B6C2A51C826601002B6900 /* ALVNetworker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A41C826601002B6900 /* ALVNetworker.m */; };
 		49B6C2A91C826C8F002B6900 /* FlightStatsHTTPReqest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A81C826C8F002B6900 /* FlightStatsHTTPReqest.m */; };
 		49C3A1B91C823ED800F2F982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1B81C823ED800F2F982 /* main.m */; };
@@ -81,6 +83,9 @@
 		493FAC691C83A77600166D9C /* UIResponder+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+additions.m"; sourceTree = "<group>"; };
 		493FAC6B1C83A96000166D9C /* UIView+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+additions.h"; sourceTree = "<group>"; };
 		493FAC6C1C83A96000166D9C /* UIView+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+additions.m"; sourceTree = "<group>"; };
+		493FAC6F1C83B77C00166D9C /* ALVTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVTextField.h; sourceTree = "<group>"; };
+		493FAC701C83B77C00166D9C /* ALVTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVTextField.m; sourceTree = "<group>"; };
+		493FAC721C83BB5100166D9C /* close_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close_icon.png; sourceTree = "<group>"; };
 		49B6C2A31C826601002B6900 /* ALVNetworker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVNetworker.h; sourceTree = "<group>"; };
 		49B6C2A41C826601002B6900 /* ALVNetworker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVNetworker.m; sourceTree = "<group>"; };
 		49B6C2A71C826C8F002B6900 /* FlightStatsHTTPReqest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatsHTTPReqest.h; sourceTree = "<group>"; };
@@ -286,6 +291,8 @@
 		49DD8ABC1C8245D500D8E33F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				493FAC6F1C83B77C00166D9C /* ALVTextField.h */,
+				493FAC701C83B77C00166D9C /* ALVTextField.m */,
 				493FAC5C1C839A8E00166D9C /* ALVTitledTextFieldView.h */,
 				493FAC5D1C839A8E00166D9C /* ALVTitledTextFieldView.m */,
 				493FAC5F1C839AB500166D9C /* ALVTitledTextFieldView.xib */,
@@ -313,6 +320,7 @@
 				493FAC451C83895D00166D9C /* Fonts */,
 				49DD8ACF1C825CB900D8E33F /* App Icons */,
 				49DD8AC11C82525900D8E33F /* Launch */,
+				493FAC721C83BB5100166D9C /* close_icon.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -484,6 +492,7 @@
 				49C3A1C71C823ED800F2F982 /* Assets.xcassets in Resources */,
 				49C3A1C21C823ED800F2F982 /* Main.storyboard in Resources */,
 				49DD8AD41C825CC000D8E33F /* SkurtAppIcon@2x.png in Resources */,
+				493FAC731C83BB5100166D9C /* close_icon.png in Resources */,
 				49DD8AD51C825CC000D8E33F /* SkurtAppIcon@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,6 +573,7 @@
 				493FAC511C838E8E00166D9C /* UIColor+additions.m in Sources */,
 				493FAC4D1C838C9A00166D9C /* FlightSearchViewController.m in Sources */,
 				493FAC631C839B2B00166D9C /* NSObject+additions.m in Sources */,
+				493FAC711C83B77C00166D9C /* ALVTextField.m in Sources */,
 				493FAC541C8396A500166D9C /* UIView+Borders.m in Sources */,
 				49C3A1BC1C823ED800F2F982 /* AppDelegate.m in Sources */,
 				493FAC5E1C839A8E00166D9C /* ALVTitledTextFieldView.m in Sources */,

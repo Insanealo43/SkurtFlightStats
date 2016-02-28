@@ -8,11 +8,12 @@
 
 #import "FlightSearchViewController.h"
 #import "ALVTitledTextFieldView.h"
+#import "ALVTextField.h"
 #import "ALVButton.h"
 
 #import "UIView+additions.h"
 
-static const CGFloat kBorderHeight = 2;
+static const CGFloat kBorderHeight = 1.5;
 
 @interface FlightSearchViewController ()
 

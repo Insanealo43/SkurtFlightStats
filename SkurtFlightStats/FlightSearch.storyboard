@@ -43,7 +43,11 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                         <color key="value" red="0.10196078431372549" green="0.48627450980392156" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Flight Lookup"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="FLIGHT LOOKUP"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="What is your flight number?"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textFieldTextColor">
+                                        <color key="value" red="0.32549020649999999" green="0.32549020649999999" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG5-og-ZhN" customClass="ALVButton">
