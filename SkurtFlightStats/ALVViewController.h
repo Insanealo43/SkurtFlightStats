@@ -10,4 +10,8 @@
 
 @interface ALVViewController : UIViewController
 
+// Override these methods for Keyboard Observance Notifications
+- (void)keyboardWillShow:(NSNotification *)notification;
+- (void)keyboardWillHide:(NSNotification *)notification;
+
 @end

@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		32AD81B2EFBDE51857DC0FF1 /* libPods-SkurtFlightStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD584836980F804066168CE /* libPods-SkurtFlightStats.a */; };
+		493FAC471C83896800166D9C /* RubikMonoOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 493FAC461C83896800166D9C /* RubikMonoOne-Regular.ttf */; };
+		493FAC491C838C2000166D9C /* FlightSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493FAC481C838C2000166D9C /* FlightSearch.storyboard */; };
+		493FAC4D1C838C9A00166D9C /* FlightSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC4C1C838C9A00166D9C /* FlightSearchViewController.m */; };
+		493FAC511C838E8E00166D9C /* UIColor+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC501C838E8E00166D9C /* UIColor+additions.m */; };
+		493FAC541C8396A500166D9C /* UIView+Borders.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC531C8396A500166D9C /* UIView+Borders.m */; };
+		493FAC581C83982600166D9C /* ALVButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC571C83982600166D9C /* ALVButton.m */; };
+		493FAC5B1C839A4200166D9C /* ALVView.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC5A1C839A4200166D9C /* ALVView.m */; };
+		493FAC5E1C839A8E00166D9C /* ALVTitledTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC5D1C839A8E00166D9C /* ALVTitledTextFieldView.m */; };
+		493FAC601C839AB500166D9C /* ALVTitledTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493FAC5F1C839AB500166D9C /* ALVTitledTextFieldView.xib */; };
+		493FAC631C839B2B00166D9C /* NSObject+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC621C839B2B00166D9C /* NSObject+additions.m */; };
+		493FAC671C83A71600166D9C /* ALVKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC661C83A71600166D9C /* ALVKeyboardObserver.m */; };
+		493FAC6A1C83A77600166D9C /* UIResponder+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC691C83A77600166D9C /* UIResponder+additions.m */; };
+		493FAC6D1C83A96000166D9C /* UIView+additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 493FAC6C1C83A96000166D9C /* UIView+additions.m */; };
 		49B6C2A51C826601002B6900 /* ALVNetworker.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A41C826601002B6900 /* ALVNetworker.m */; };
 		49B6C2A91C826C8F002B6900 /* FlightStatsHTTPReqest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B6C2A81C826C8F002B6900 /* FlightStatsHTTPReqest.m */; };
 		49C3A1B91C823ED800F2F982 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3A1B81C823ED800F2F982 /* main.m */; };
@@ -45,6 +58,29 @@
 
 /* Begin PBXFileReference section */
 		05D166FC0E5B04CD1F2B42DF /* Pods-SkurtFlightStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkurtFlightStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkurtFlightStats/Pods-SkurtFlightStats.release.xcconfig"; sourceTree = "<group>"; };
+		493FAC461C83896800166D9C /* RubikMonoOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RubikMonoOne-Regular.ttf"; sourceTree = "<group>"; };
+		493FAC481C838C2000166D9C /* FlightSearch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FlightSearch.storyboard; sourceTree = "<group>"; };
+		493FAC4B1C838C9A00166D9C /* FlightSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightSearchViewController.h; sourceTree = "<group>"; };
+		493FAC4C1C838C9A00166D9C /* FlightSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightSearchViewController.m; sourceTree = "<group>"; };
+		493FAC4F1C838E8E00166D9C /* UIColor+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+additions.h"; sourceTree = "<group>"; };
+		493FAC501C838E8E00166D9C /* UIColor+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+additions.m"; sourceTree = "<group>"; };
+		493FAC521C8396A500166D9C /* UIView+Borders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Borders.h"; sourceTree = "<group>"; };
+		493FAC531C8396A500166D9C /* UIView+Borders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Borders.m"; sourceTree = "<group>"; };
+		493FAC561C83982600166D9C /* ALVButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVButton.h; sourceTree = "<group>"; };
+		493FAC571C83982600166D9C /* ALVButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVButton.m; sourceTree = "<group>"; };
+		493FAC591C839A4200166D9C /* ALVView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVView.h; sourceTree = "<group>"; };
+		493FAC5A1C839A4200166D9C /* ALVView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVView.m; sourceTree = "<group>"; };
+		493FAC5C1C839A8E00166D9C /* ALVTitledTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVTitledTextFieldView.h; sourceTree = "<group>"; };
+		493FAC5D1C839A8E00166D9C /* ALVTitledTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVTitledTextFieldView.m; sourceTree = "<group>"; };
+		493FAC5F1C839AB500166D9C /* ALVTitledTextFieldView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ALVTitledTextFieldView.xib; sourceTree = "<group>"; };
+		493FAC611C839B2B00166D9C /* NSObject+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+additions.h"; sourceTree = "<group>"; };
+		493FAC621C839B2B00166D9C /* NSObject+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+additions.m"; sourceTree = "<group>"; };
+		493FAC651C83A71600166D9C /* ALVKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVKeyboardObserver.h; sourceTree = "<group>"; };
+		493FAC661C83A71600166D9C /* ALVKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVKeyboardObserver.m; sourceTree = "<group>"; };
+		493FAC681C83A77600166D9C /* UIResponder+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+additions.h"; sourceTree = "<group>"; };
+		493FAC691C83A77600166D9C /* UIResponder+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+additions.m"; sourceTree = "<group>"; };
+		493FAC6B1C83A96000166D9C /* UIView+additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+additions.h"; sourceTree = "<group>"; };
+		493FAC6C1C83A96000166D9C /* UIView+additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+additions.m"; sourceTree = "<group>"; };
 		49B6C2A31C826601002B6900 /* ALVNetworker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALVNetworker.h; sourceTree = "<group>"; };
 		49B6C2A41C826601002B6900 /* ALVNetworker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALVNetworker.m; sourceTree = "<group>"; };
 		49B6C2A71C826C8F002B6900 /* FlightStatsHTTPReqest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightStatsHTTPReqest.h; sourceTree = "<group>"; };
@@ -112,6 +148,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		493FAC451C83895D00166D9C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				493FAC461C83896800166D9C /* RubikMonoOne-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		493FAC4A1C838C8600166D9C /* Flight Search */ = {
+			isa = PBXGroup;
+			children = (
+				493FAC4B1C838C9A00166D9C /* FlightSearchViewController.h */,
+				493FAC4C1C838C9A00166D9C /* FlightSearchViewController.m */,
+			);
+			name = "Flight Search";
+			sourceTree = "<group>";
+		};
+		493FAC4E1C838E7700166D9C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				493FAC611C839B2B00166D9C /* NSObject+additions.h */,
+				493FAC621C839B2B00166D9C /* NSObject+additions.m */,
+				493FAC681C83A77600166D9C /* UIResponder+additions.h */,
+				493FAC691C83A77600166D9C /* UIResponder+additions.m */,
+				493FAC4F1C838E8E00166D9C /* UIColor+additions.h */,
+				493FAC501C838E8E00166D9C /* UIColor+additions.m */,
+				493FAC6B1C83A96000166D9C /* UIView+additions.h */,
+				493FAC6C1C83A96000166D9C /* UIView+additions.m */,
+				493FAC521C8396A500166D9C /* UIView+Borders.h */,
+				493FAC531C8396A500166D9C /* UIView+Borders.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		493FAC551C83980500166D9C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				493FAC561C83982600166D9C /* ALVButton.h */,
+				493FAC571C83982600166D9C /* ALVButton.m */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
 		49B6C2A61C82677E002B6900 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,8 +228,10 @@
 			isa = PBXGroup;
 			children = (
 				49DD8ABE1C8245E600D8E33F /* Assets */,
+				493FAC4E1C838E7700166D9C /* Categories */,
 				49DD8ABF1C8245FE00D8E33F /* Utilities */,
 				49DD8ABB1C8245CF00D8E33F /* Models */,
+				493FAC551C83980500166D9C /* Buttons */,
 				49DD8ABC1C8245D500D8E33F /* Views */,
 				49DD8ABD1C8245DA00D8E33F /* Controllers */,
 				49DD8AC01C82461700D8E33F /* Storyboards */,
@@ -159,6 +240,7 @@
 				49C3A1BB1C823ED800F2F982 /* AppDelegate.m */,
 				49C3A1CB1C823ED800F2F982 /* Info.plist */,
 				49C3A1C31C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld */,
+				49DD8ABA1C82419600D8E33F /* SkurtFlightStats-Prefix.pch */,
 				49C3A1C61C823ED800F2F982 /* Assets.xcassets */,
 			);
 			path = SkurtFlightStats;
@@ -169,7 +251,6 @@
 			children = (
 				49DD8ACD1C82592500D8E33F /* Headers */,
 				49C3A1B81C823ED800F2F982 /* main.m */,
-				49DD8ABA1C82419600D8E33F /* SkurtFlightStats-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -196,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				49B6C2A61C82677E002B6900 /* Networking */,
+				493FAC651C83A71600166D9C /* ALVKeyboardObserver.h */,
+				493FAC661C83A71600166D9C /* ALVKeyboardObserver.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -203,6 +286,11 @@
 		49DD8ABC1C8245D500D8E33F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				493FAC5C1C839A8E00166D9C /* ALVTitledTextFieldView.h */,
+				493FAC5D1C839A8E00166D9C /* ALVTitledTextFieldView.m */,
+				493FAC5F1C839AB500166D9C /* ALVTitledTextFieldView.xib */,
+				493FAC591C839A4200166D9C /* ALVView.h */,
+				493FAC5A1C839A4200166D9C /* ALVView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -210,6 +298,7 @@
 		49DD8ABD1C8245DA00D8E33F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				493FAC4A1C838C8600166D9C /* Flight Search */,
 				49DD8ACA1C8256DE00D8E33F /* MainViewController.h */,
 				49DD8ACB1C8256DE00D8E33F /* MainViewController.m */,
 				49DD8AC51C8253FE00D8E33F /* ALVViewController.h */,
@@ -221,6 +310,7 @@
 		49DD8ABE1C8245E600D8E33F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				493FAC451C83895D00166D9C /* Fonts */,
 				49DD8ACF1C825CB900D8E33F /* App Icons */,
 				49DD8AC11C82525900D8E33F /* Launch */,
 			);
@@ -239,6 +329,7 @@
 			children = (
 				49C3A1C81C823ED800F2F982 /* LaunchScreen.storyboard */,
 				49C3A1C01C823ED800F2F982 /* Main.storyboard */,
+				493FAC481C838C2000166D9C /* FlightSearch.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -387,6 +478,9 @@
 				49DD8AC31C82526100D8E33F /* SkurtLaunchScreen.png in Resources */,
 				49DD8AD31C825CC000D8E33F /* SkurtAppIcon.png in Resources */,
 				49C3A1CA1C823ED800F2F982 /* LaunchScreen.storyboard in Resources */,
+				493FAC491C838C2000166D9C /* FlightSearch.storyboard in Resources */,
+				493FAC601C839AB500166D9C /* ALVTitledTextFieldView.xib in Resources */,
+				493FAC471C83896800166D9C /* RubikMonoOne-Regular.ttf in Resources */,
 				49C3A1C71C823ED800F2F982 /* Assets.xcassets in Resources */,
 				49C3A1C21C823ED800F2F982 /* Main.storyboard in Resources */,
 				49DD8AD41C825CC000D8E33F /* SkurtAppIcon@2x.png in Resources */,
@@ -464,11 +558,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				49B6C2A91C826C8F002B6900 /* FlightStatsHTTPReqest.m in Sources */,
+				493FAC581C83982600166D9C /* ALVButton.m in Sources */,
 				49DD8AC71C8253FE00D8E33F /* ALVViewController.m in Sources */,
+				493FAC671C83A71600166D9C /* ALVKeyboardObserver.m in Sources */,
+				493FAC511C838E8E00166D9C /* UIColor+additions.m in Sources */,
+				493FAC4D1C838C9A00166D9C /* FlightSearchViewController.m in Sources */,
+				493FAC631C839B2B00166D9C /* NSObject+additions.m in Sources */,
+				493FAC541C8396A500166D9C /* UIView+Borders.m in Sources */,
 				49C3A1BC1C823ED800F2F982 /* AppDelegate.m in Sources */,
+				493FAC5E1C839A8E00166D9C /* ALVTitledTextFieldView.m in Sources */,
 				49C3A1B91C823ED800F2F982 /* main.m in Sources */,
+				493FAC6D1C83A96000166D9C /* UIView+additions.m in Sources */,
 				49DD8ACC1C8256DE00D8E33F /* MainViewController.m in Sources */,
+				493FAC6A1C83A77600166D9C /* UIResponder+additions.m in Sources */,
 				49C3A1C51C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld in Sources */,
+				493FAC5B1C839A4200166D9C /* ALVView.m in Sources */,
 				49B6C2A51C826601002B6900 /* ALVNetworker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

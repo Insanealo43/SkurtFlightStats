@@ -8,38 +8,31 @@
 
 #import "AppDelegate.h"
 
-static NSString *const kFlightStatsAppId = @"91b929e6";
-static NSString *const kFlightStatsKey = @"is2eebba75c50ce13c31b9ef0b331fb93a";
-
-@interface AppDelegate ()
-
-@property (strong, nonatomic) NSURLSession *session;
-
-@end
+static NSString *const kRubikFontName = @"RubikMonoOne-Regular";
+static const CGFloat kFontPointsize = 14;
+static const CGFloat kLetterSpacing = 8;
 
 @implementation AppDelegate
-
-- (NSURLSession *)session {
-    if (!_session) {
-        NSMutableDictionary *additionalHTTPHeader = [NSMutableDictionary dictionary];
-        [additionalHTTPHeader setObject:@"application/json" forKey:@"Content-Type"];
-        [additionalHTTPHeader setObject:@"application/json" forKey:@"Accept"];
-        [additionalHTTPHeader setObject:kFlightStatsAppId forKey:@"appId"];
-        [additionalHTTPHeader setObject:kFlightStatsKey forKey:@"appKey"];
-        
-        NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-        [sessionConfig setHTTPAdditionalHeaders:additionalHTTPHeader];
-        
-    }
-    return _session;
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Configure Window
     [self.window setBackgroundColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
     
-    // Show the status bar
+    // Navigation Bar Appearence proxy
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont fontWithName:kRubikFontName size:kFontPointsize] forKey:NSFontAttributeName];
+    [titleBarAttributes setValue:[UIColor colorFromHexString:ColorTitleTextHex] forKey:NSForegroundColorAttributeName];
+    [titleBarAttributes setValue:@(kLetterSpacing) forKey:NSKernAttributeName];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance] setTranslucent:YES];
+    
+    // Load Keyboard Observer
+    [ALVKeyboardObserver singleton];
     
     return YES;
 }

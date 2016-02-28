@@ -30,6 +30,10 @@
     fade.toValue = @0;
     
     [_imageView pop_addAnimation:fade forKey:@"fade"];
+    fade.completionBlock = ^(POPAnimation *anim, BOOL finished) {
+        UIViewController *flightSearch = [[UIStoryboard storyboardWithName:@"FlightSearch" bundle:nil] instantiateInitialViewController];
+        [[[[UIApplication sharedApplication] delegate] window] setRootViewController:flightSearch];
+    };
 }
 
 @end
