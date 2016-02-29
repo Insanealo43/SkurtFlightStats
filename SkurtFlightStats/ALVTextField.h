@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong) IBInspectable UIColor *placeholderColor;
 
+@property (readonly) NSTimer *textChangeTimer;
+@property (nonatomic, assign) NSTimeInterval textChangeDelay;
+@property (nonatomic, readonly) NSString *delayedText;
+
 @end

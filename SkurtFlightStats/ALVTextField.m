@@ -8,7 +8,69 @@
 
 #import "ALVTextField.h"
 
+static const double kDefaultDelay = .25;
+
+@interface ALVTextField ()
+
+@property (nonatomic, strong) NSTimer *textChangeTimer;
+@property (nonatomic, strong) NSString *delayedText;
+
+@end
+
 @implementation ALVTextField
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setupTextField];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setupTextField];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupTextField];
+    }
+    return self;
+}
+
+- (void)setupTextField {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startedEditing:) name:UITextFieldTextDidBeginEditingNotification object:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editied:) name:UITextFieldTextDidChangeNotification object:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endedEditing:) name:UITextFieldTextDidEndEditingNotification object:self];
+    
+    _textChangeDelay = kDefaultDelay;
+}
+
+- (void)startedEditing:(NSNotification *)notification {
+    
+}
+
+- (void)editied:(NSNotification *)notification {
+    [_textChangeTimer invalidate];
+    _textChangeTimer = [NSTimer scheduledTimerWithTimeInterval:_textChangeDelay target:self selector:@selector(timerUpdate:) userInfo:(self.text ? @{@"text" : self.text} : nil) repeats:NO];
+}
+
+- (void)endedEditing:(NSNotification *)notification {
+    
+}
+
+- (void)timerUpdate:(NSTimer *)timer {
+    self.delayedText = [timer.userInfo objectForKey:@"text"];
+}
 
 - (NSDictionary *)placeholderAttributes {
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];

@@ -10,7 +10,7 @@
 
 @implementation UIView (additions)
 
-+ (void)animateAlongsideKeyboard:(VoidBlock)animations completion:(CompletionBlock)completion {
++ (void)animateAlongsideKeyboard:(VoidBlock)animations completion:(SuccessBlock)completion {
     if ([[ALVKeyboardObserver singleton] isAnimating]) {
         [UIView animateWithDuration:[ALVKeyboardObserver singleton].animationDuration animations:animations completion:completion];
     }

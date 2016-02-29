@@ -11,6 +11,8 @@
 #import "ALVTextField.h"
 #import "ALVButton.h"
 
+#import "FlightStatsHTTPReqest.h"
+
 #import "UIView+additions.h"
 
 static const CGFloat kBorderHeight = 1.5;
@@ -40,6 +42,8 @@ static const CGFloat kBorderHeight = 1.5;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:ALVKeyboardObserverWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:ALVKeyboardObserverWillHideNotification object:nil];
+    
+    [_titledTextFieldView.textField addObserver:self forKeyPath:@"delayedText" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -50,6 +54,7 @@ static const CGFloat kBorderHeight = 1.5;
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_titledTextFieldView.textField removeObserver:self forKeyPath:@"delayedText"];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -59,6 +64,14 @@ static const CGFloat kBorderHeight = 1.5;
     [UIView animateAlongsideKeyboard:^{
         [self.view layoutIfNeeded];
     } completion:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+    if ([object isEqual:_titledTextFieldView.textField]) {
+        if ([keyPath isEqualToString:@"delayedText"]) {
+            [self searchWithText:_titledTextFieldView.textField.delayedText];
+        }
+    }
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
@@ -72,8 +85,23 @@ static const CGFloat kBorderHeight = 1.5;
 
 - (IBAction)searchTapped:(UIButton *)sender {
     if ([_titledTextFieldView.textField isFirstResponder]) {
+        // Fire FlightStats Search
+        [_titledTextFieldView.textField.textChangeTimer invalidate];
+        [self searchWithText:_titledTextFieldView.textField.text];
+        
+        // Resign Keboard
         [_titledTextFieldView.textField resignFirstResponder];
     }
+}
+
+- (void)searchWithText:(NSString *)searchText {
+    FlightStatsHTTPReqest *request = [[FlightStatsHTTPReqest alloc] init];
+    request.apiName = @"airlines";
+    request.requiredParams = @"active";
+    
+    [request fireWithCompletion:^{
+        
+    }];
 }
 
 @end

@@ -11,6 +11,5 @@
 
 typedef void (^VoidBlock)(void);
 typedef void (^SuccessBlock)(BOOL);
-typedef void (^CompletionBlock)(BOOL);
 
 #endif /* BlockDeclarations_h */

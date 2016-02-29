@@ -16,7 +16,7 @@ typedef NS_ENUM (NSUInteger, ProtocolSelectorType) {
 typedef NS_ENUM (NSUInteger, FormatSelectorType) {
     JSONFormat = 1,
     JSONPFormat = 2,
-    XMLFormay = 3
+    XMLFormat = 3
 };
 
 @interface FlightStatsHTTPReqest : NSObject
@@ -29,10 +29,11 @@ typedef NS_ENUM (NSUInteger, FormatSelectorType) {
 @property (assign, nonatomic) BOOL useHTTPErrors; // Defaults to 'YES'
 @property (assign, nonatomic) BOOL includeNewFields; // Defaults to 'YES'
 
-@property (strong, nonatomic) NSString *relativePath;
+@property (strong, nonatomic) NSString *apiName;
+@property (strong, nonatomic) NSString *requiredParams;
 @property (strong, nonatomic) NSDictionary *optionalParams;
 
-@property (readonly, nonatomic) NSURL *URL;
-@property (readonly, nonatomic) NSURLRequest *URLRequest;
+- (NSURLRequest *)URLRequest;
+- (void)fireWithCompletion:(VoidBlock)block;
 
 @end

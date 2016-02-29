@@ -11,12 +11,13 @@
 static NSString *const FlightStatsApiBaseURI = @"https://api.flightstats.com/flex";
 
 static NSString *const kFlightStatsAppId = @"91b929e6";
-static NSString *const kFlightStatsKey = @"is2eebba75c50ce13c31b9ef0b331fb93a";
+static NSString *const kFlightStatsKey = @"2eebba75c50ce13c31b9ef0b331fb93a";
+
+static NSString *const kFormatString = @"https://api.flightstats.com/flex/airlines/rest/v1/json/active";
 
 @interface FlightStatsHTTPReqest ()
 
-@property (nonatomic, strong) NSURL *URL;
-@property (nonatomic, strong) NSMutableURLRequest *urlRequest;
+@property (nonatomic, strong) NSMutableURLRequest *URLRequest;
 
 @end
 
@@ -29,58 +30,116 @@ static NSString *const kFlightStatsKey = @"is2eebba75c50ce13c31b9ef0b331fb93a";
         _protocol = RESTProtocol;
         _format = JSONFormat;
         _useHTTPErrors = _useInlineReferences = _includeNewFields = YES;
-        
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setValue:kFlightStatsAppId forHTTPHeaderField:@"appId"];
-        [request setValue:kFlightStatsKey forHTTPHeaderField:@"appKey"];
-        _urlRequest = request;
     }
     return self;
 }
 
 - (void)setUseHTTPErrors:(BOOL)useHTTPErrors {
     _useHTTPErrors = useHTTPErrors;
-    
+    _URLRequest = nil;
 }
 
 - (void)setUseInlineReferences:(BOOL)useInlineReferences {
     _useInlineReferences = useInlineReferences;
-    
+    _URLRequest = nil;
 }
 
 - (void)setIncludeNewFields:(BOOL)includeNewFields {
     _includeNewFields = includeNewFields;
-    
+    _URLRequest = nil;
 }
 
 - (void)setVersion:(NSUInteger)version {
     _version = MAX(version, 1);
+    _URLRequest = nil;
 }
 
-- (void)setRelativePath:(NSString *)relativePath {
-    _relativePath = relativePath;
-    [self setURL:nil];
-    [_urlRequest setURL:[self URL]];
+@synthesize apiName = _apiName;
+- (NSString *)apiName {
+    return _apiName ? _apiName : @"";
+}
+
+- (void)setApiName:(NSString *)apiName {
+    _apiName = apiName;
+    _URLRequest = nil;
+}
+
+@synthesize requiredParams = _requiredParams;
+- (NSString *)requiredParams {
+    return _requiredParams ? _requiredParams : @"";
+}
+
+- (void)setRequiredParams:(NSString *)requiredParams {
+    _requiredParams = requiredParams;
+    _URLRequest = nil;
 }
 
 - (void)setOptionalParams:(NSDictionary *)optionalParams {
     _optionalParams = optionalParams;
-    [self setURL:nil];
-    [_urlRequest setURL:[self URL]];
+    _URLRequest = nil;
 }
 
-- (NSURL *)URL {
-    if (!_URL) {
-        
+- (NSString *)protocolString {
+    switch (_protocol) {
+        case RESTProtocol:
+            return @"rest";
+            
+        case SOAPProtocol:
+            return @"soap";
     }
-    return _URL;
+    
+    return @"rest";
+}
+
+- (NSString *)formatString {
+    switch (_format) {
+        case JSONFormat:
+            return @"json";
+            
+        case JSONPFormat:
+            return @"jsonp";
+            
+        case XMLFormat:
+            return @"xml";
+    }
+    
+    return @"json";
+}
+
+- (NSString *)optionalParamsString {
+    if ([_optionalParams count] > 0) {
+        
+        return [NSString stringWithFormat:@"?%@", @""];
+    }
+    
+    return @"";
 }
 
 - (NSURLRequest *)URLRequest {
-    if (!_urlRequest) {
+    if (!_URLRequest) {
+        // Format: Base_URI, /API_NAME, /PROTOCOL, /VERSION, /FORMAT, /REQUIRED, /OPTIONAL
+        NSString *formattedURI = [NSString stringWithFormat:@"%@/%@/%@/v%@/%@/%@/%@", FlightStatsApiBaseURI, [self apiName], [self protocolString], @(_version), [self formatString], [self requiredParams], [self optionalParamsString]];
         
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:formattedURI]];
+        [request setValue:kFlightStatsAppId forHTTPHeaderField:@"appId"]; //91b929e6
+        [request setValue:kFlightStatsKey forHTTPHeaderField:@"appKey"]; //is2eebba75c50ce13c31b9ef0b331fb93a
+        
+        _URLRequest = request;
     }
-    return _urlRequest;
+    return _URLRequest;
+}
+
+- (void)fireWithCompletion:(VoidBlock)block {
+    NSURLSessionDataTask *task = [[ALVNetworker sharedSession] dataTaskWithRequest:[self URLRequest] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSError *err;
+        NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dirtyJSON = [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error:&err];
+        
+        if (block) block();
+    }];
+    [task resume];
 }
 
 @end

@@ -35,8 +35,8 @@ static NSString *const kFlightStatsKey = @"is2eebba75c50ce13c31b9ef0b331fb93a";
         NSMutableDictionary *additionalHTTPHeader = [NSMutableDictionary dictionary];
         [additionalHTTPHeader setObject:@"application/json" forKey:@"Content-Type"];
         [additionalHTTPHeader setObject:@"application/json" forKey:@"Accept"];
-        [additionalHTTPHeader setObject:kFlightStatsAppId forKey:@"appId"];
-        [additionalHTTPHeader setObject:kFlightStatsKey forKey:@"appKey"];
+        //[additionalHTTPHeader setObject:kFlightStatsAppId forKey:@"appId"];
+        //[additionalHTTPHeader setObject:kFlightStatsKey forKey:@"appKey"];
         
         NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
         [sessionConfig setHTTPAdditionalHeaders:additionalHTTPHeader];

@@ -10,6 +10,6 @@
 
 @interface UIView (additions)
 
-+ (void)animateAlongsideKeyboard:(VoidBlock)animations completion:(CompletionBlock)completion;
++ (void)animateAlongsideKeyboard:(VoidBlock)animations completion:(SuccessBlock)completion;
 
 @end
