@@ -7,6 +7,7 @@
 //
 
 #import "FlightStatsHTTPReqest.h"
+#import "NSData+additions.h"
 
 static NSString *const FlightStatsApiBaseURI = @"https://api.flightstats.com/flex";
 
@@ -18,6 +19,7 @@ static NSString *const kFormatString = @"https://api.flightstats.com/flex/airlin
 @interface FlightStatsHTTPReqest ()
 
 @property (nonatomic, strong) NSMutableURLRequest *URLRequest;
+@property (nonatomic, strong) NSDictionary *response;
 
 @end
 
@@ -121,8 +123,8 @@ static NSString *const kFormatString = @"https://api.flightstats.com/flex/airlin
         NSString *formattedURI = [NSString stringWithFormat:@"%@/%@/%@/v%@/%@/%@/%@", FlightStatsApiBaseURI, [self apiName], [self protocolString], @(_version), [self formatString], [self requiredParams], [self optionalParamsString]];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:formattedURI]];
-        [request setValue:kFlightStatsAppId forHTTPHeaderField:@"appId"]; //91b929e6
-        [request setValue:kFlightStatsKey forHTTPHeaderField:@"appKey"]; //is2eebba75c50ce13c31b9ef0b331fb93a
+        [request setValue:kFlightStatsAppId forHTTPHeaderField:@"appId"];
+        [request setValue:kFlightStatsKey forHTTPHeaderField:@"appKey"];
         
         _URLRequest = request;
     }
@@ -132,11 +134,7 @@ static NSString *const kFormatString = @"https://api.flightstats.com/flex/airlin
 - (void)fireWithCompletion:(VoidBlock)block {
     NSURLSessionDataTask *task = [[ALVNetworker sharedSession] dataTaskWithRequest:[self URLRequest] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSError *err;
-        NSData *jsonData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *dirtyJSON = [NSJSONSerialization JSONObjectWithData:jsonData options: NSJSONReadingMutableContainers error:&err];
-        
+        _response = [data json];
         if (block) block();
     }];
     [task resume];

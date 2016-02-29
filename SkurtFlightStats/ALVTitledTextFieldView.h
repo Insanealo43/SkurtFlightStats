@@ -24,4 +24,6 @@ IB_DESIGNABLE
 // Defaults to 'YES'; When enabled, tapping anywhere inside the view will set the textField as first responder
 @property (nonatomic, assign) IBInspectable BOOL enableViewTap;
 
+- (void)textFieldShouldBecomeFirstResponder;
+
 @end

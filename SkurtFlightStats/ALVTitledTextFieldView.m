@@ -87,6 +87,15 @@
     }
 }
 
+- (void)textFieldShouldBecomeFirstResponder {
+    if (_enableViewTap) {
+         [_touchButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+        
+    } else {
+        [_textField becomeFirstResponder];
+    }
+}
+
 - (IBAction)stopEditing:(UIButton *)sender {
     [_textField resignFirstResponder];
 }

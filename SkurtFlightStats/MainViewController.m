@@ -16,13 +16,17 @@
 
 @implementation MainViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    // Fetch all the active airlines before redirecting to our Flight Search Storyboard
+    [[AirlinesManager manager] fetchActiveAirlinesWithCompletion:^{
+        [self fadeAndRedirect];
+    }];
+}
+
+- (void)fadeAndRedirect {
+    // Add Fade animation
     POPBasicAnimation *fade = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
     fade.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     fade.duration = .8f;
@@ -31,6 +35,7 @@
     
     [_imageView pop_addAnimation:fade forKey:@"fade"];
     fade.completionBlock = ^(POPAnimation *anim, BOOL finished) {
+        // Change the window's root view controller
         UIViewController *flightSearch = [[UIStoryboard storyboardWithName:@"FlightSearch" bundle:nil] instantiateInitialViewController];
         [[[[UIApplication sharedApplication] delegate] window] setRootViewController:flightSearch];
     };

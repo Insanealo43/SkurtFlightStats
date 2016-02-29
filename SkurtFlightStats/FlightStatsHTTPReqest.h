@@ -36,4 +36,6 @@ typedef NS_ENUM (NSUInteger, FormatSelectorType) {
 - (NSURLRequest *)URLRequest;
 - (void)fireWithCompletion:(VoidBlock)block;
 
+@property (readonly) NSDictionary *response;
+
 @end

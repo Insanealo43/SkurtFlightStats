@@ -13,17 +13,36 @@
 
 #import "FlightStatsHTTPReqest.h"
 
+#import "ALVAirlineTableViewCell.h"
+
 #import "UIView+additions.h"
+#import "UIResponder+additions.h"
+
+static NSString *const kSelectAirline = @"Select Airline";
+static NSString *const kSelectDepartureDate = @"Select Departure Date";
+static NSString *const kEnterFlightNumber = @"Enter Flight Number";
+
+static NSString *const DFSYearMonthDayNumbers = @"yyyy-MM-dd";
 
 static const CGFloat kBorderHeight = 1.5;
 
 @interface FlightSearchViewController ()
 
-@property (weak, nonatomic) IBOutlet ALVTitledTextFieldView *titledTextFieldView;
+@property (weak, nonatomic) IBOutlet ALVTitledTextFieldView *airlineInputField;
+@property (weak, nonatomic) IBOutlet ALVTitledTextFieldView *flightNumberInputField;
+@property (weak, nonatomic) IBOutlet ALVTitledTextFieldView *departureDateInputField;
 @property (weak, nonatomic) IBOutlet ALVButton *searchButton;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *airlineMatches;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ConstraintButtonBottomMargin;
 @property (assign, nonatomic) CGFloat constant;
+
+@property (nonatomic, strong) NSString *selectedAirlineName;
+@property (nonatomic, strong) NSString *flightNumberString;
+@property (nonatomic, strong) NSDate *departureDate;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -32,18 +51,36 @@ static const CGFloat kBorderHeight = 1.5;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_titledTextFieldView addTopBorderWithHeight:kBorderHeight andColor:[UIColor colorFromHexString:ColorBorderHex]];
-    [_titledTextFieldView addBottomBorderWithHeight:kBorderHeight andColor:[UIColor colorFromHexString:ColorBorderHex]];
-    [_titledTextFieldView.textField setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [_tableView registerNib:[UINib nibWithNibName:[ALVAirlineTableViewCell className] bundle:nil] forCellReuseIdentifier:[ALVAirlineTableViewCell className]];
+    
+    [_airlineInputField addTopBorderWithHeight:kBorderHeight andColor:[UIColor colorFromHexString:ColorBorderHex]];
+    [_airlineInputField addBottomBorderWithHeight:kBorderHeight andColor:[UIColor colorFromHexString:ColorBorderHex]];
+    [_flightNumberInputField addBottomBorderWithHeight:kBorderHeight andColor:[UIColor colorFromHexString:ColorBorderHex]];
+    [_departureDateInputField addBottomBorderWithHeight:kBorderHeight andColor:[UIColor colorFromHexString:ColorBorderHex]];
+    
+    UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+    [datePicker addTarget:self action:@selector(pickerSelectedDate:) forControlEvents:UIControlEventValueChanged];
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    datePicker.minimumDate = [NSDate date];
+    datePicker.date = [NSDate date];
+    [_departureDateInputField.textField setInputView:datePicker];
+    
+    _dateFormatter = [[NSDateFormatter alloc] init];
+    [_dateFormatter setDateFormat:DFSYearMonthDayNumbers];
+    [_dateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    
+    [_searchButton setTitle:kSelectAirline forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:ALVKeyboardObserverWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:ALVKeyboardObserverDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:ALVKeyboardObserverWillHideNotification object:nil];
     
-    [_titledTextFieldView.textField addObserver:self forKeyPath:@"delayedText" options:NSKeyValueObservingOptionNew context:NULL];
+    [_airlineInputField.textField addObserver:self forKeyPath:@"delayedText" options:NSKeyValueObservingOptionNew context:NULL];
+    [_flightNumberInputField.textField addObserver:self forKeyPath:@"delayedText" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -54,27 +91,72 @@ static const CGFloat kBorderHeight = 1.5;
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_titledTextFieldView.textField removeObserver:self forKeyPath:@"delayedText"];
+    
+    [_airlineInputField.textField removeObserver:self forKeyPath:@"delayedText"];
+    [_flightNumberInputField.textField removeObserver:self forKeyPath:@"delayedText"];
+}
+
+- (ALVTitledTextFieldView *)activeInputView {
+    if (_airlineInputField.textField.isFirstResponder) {
+        return _airlineInputField;
+        
+    } else if (_flightNumberInputField.textField.isFirstResponder) {
+        return _flightNumberInputField;
+        
+    } else if (_departureDateInputField.textField.isFirstResponder) {
+        return _departureDateInputField;
+    }
+    return nil;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
+    _flightNumberInputField.hidden = [_airlineInputField.textField isFirstResponder];
+    _departureDateInputField.hidden = [_airlineInputField.textField isFirstResponder] || [_flightNumberInputField.textField isFirstResponder];
+    
+    if ([_airlineInputField.textField isFirstResponder]) {
+        [_searchButton setTitle:kSelectAirline forState:UIControlStateNormal];
+        
+    } else if ([_flightNumberInputField.textField isFirstResponder]) {
+        [_searchButton setTitle:kEnterFlightNumber forState:UIControlStateNormal];
+        
+    } else if ([_departureDateInputField.textField isFirstResponder]) {
+        [_searchButton setTitle:kSelectDepartureDate forState:UIControlStateNormal];
+    }
+    
     _ConstraintButtonBottomMargin.constant = [ALVKeyboardObserver singleton].keyboardRect.size.height;
     [self.view setNeedsUpdateConstraints];
     
     [UIView animateAlongsideKeyboard:^{
         [self.view layoutIfNeeded];
-    } completion:nil];
+    } completion:^(BOOL finished) {
+        CGFloat y = [self activeInputView].frame.origin.y + [self activeInputView].frame.size.height;
+        CGFloat height = _searchButton.frame.origin.y - y;
+        
+        _tableView.contentInset = UIEdgeInsetsZero;
+        _tableView.frame = CGRectMake(_tableView.frame.origin.x, y, self.view.frame.size.width, height);
+        _tableView.hidden = ![_airlineInputField.textField isFirstResponder];
+    }];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([object isEqual:_titledTextFieldView.textField]) {
-        if ([keyPath isEqualToString:@"delayedText"]) {
-            [self searchWithText:_titledTextFieldView.textField.delayedText];
+    if ([keyPath isEqualToString:@"delayedText"]) {
+        if ([object isEqual:_airlineInputField.textField]) {
+            [self searchAirlinesWithText:_airlineInputField.textField.delayedText];
+            
+        } else if ([object isEqual:_flightNumberInputField.textField]) {
+            [self enteredFlightNumber:_flightNumberInputField.textField.text];
         }
     }
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
+     _tableView.hidden = YES;
+    [self updateFields];
+    
     _ConstraintButtonBottomMargin.constant = _constant;
     [self.view setNeedsUpdateConstraints];
     
@@ -84,24 +166,110 @@ static const CGFloat kBorderHeight = 1.5;
 }
 
 - (IBAction)searchTapped:(UIButton *)sender {
-    if ([_titledTextFieldView.textField isFirstResponder]) {
-        // Fire FlightStats Search
-        [_titledTextFieldView.textField.textChangeTimer invalidate];
-        [self searchWithText:_titledTextFieldView.textField.text];
+    NSString *currentTitle = sender.titleLabel.text;
+    if ([currentTitle isEqualToString:kSelectAirline]) {
+        if ([_airlineInputField.textField isFirstResponder]) {
+            [_airlineInputField.textField.textChangeTimer invalidate];
+            [self selectedAirlineText:[_airlineMatches firstObject]];
+            [_airlineInputField.textField resignFirstResponder];
+            
+        } else {
+            _flightNumberInputField.hidden = _departureDateInputField.hidden = YES;
+            [_searchButton setTitle:kSelectAirline forState:UIControlStateNormal];
+            [_airlineInputField textFieldShouldBecomeFirstResponder];
+        }
         
-        // Resign Keboard
-        [_titledTextFieldView.textField resignFirstResponder];
+    } else if ([currentTitle isEqualToString:kEnterFlightNumber]) {
+        if ([_flightNumberInputField.textField isFirstResponder]) {
+            [_flightNumberInputField.textField.textChangeTimer invalidate];
+            [self enteredFlightNumber:_flightNumberInputField.textField.text];
+            [_flightNumberInputField.textField resignFirstResponder];
+            
+        } else {
+            _departureDateInputField.hidden = YES;
+            [_searchButton setTitle:kEnterFlightNumber forState:UIControlStateNormal];
+            [_flightNumberInputField textFieldShouldBecomeFirstResponder];
+        }
+        
+    } else if ([currentTitle isEqualToString:kSelectDepartureDate]) {
+        if ([_departureDateInputField.textField isFirstResponder]) {
+            
+            
+        } else {
+            [_searchButton setTitle:kSelectDepartureDate forState:UIControlStateNormal];
+            [_departureDateInputField textFieldShouldBecomeFirstResponder];
+        }
     }
 }
 
-- (void)searchWithText:(NSString *)searchText {
-    FlightStatsHTTPReqest *request = [[FlightStatsHTTPReqest alloc] init];
-    request.apiName = @"airlines";
-    request.requiredParams = @"active";
+- (void)searchAirlinesWithText:(NSString *)airlineText {
+    _airlineMatches = [[AirlinesManager manager] airlineNamesForSearchText:airlineText];
+    [_tableView reloadData];
+}
+
+- (void)selectedAirlineText:(NSString *)airline {
+    _selectedAirlineName = airline;
+    _airlineInputField.textField.text = airline;
     
-    [request fireWithCompletion:^{
+    [self updateFields];
+}
+
+- (void)selectedDate:(NSDate *)departureDate {
+    _departureDate = departureDate;
+    _departureDateInputField.textField.text = [_dateFormatter stringFromDate:departureDate];
+    
+    [self updateFields];
+}
+
+- (void)enteredFlightNumber:(NSString *)flightNumber {
+    _flightNumberString = flightNumber;
+    _flightNumberInputField.textField.text = flightNumber;
+    
+    [self updateFields];
+}
         
-    }];
+- (void)updateFields {
+    _flightNumberInputField.hidden = !_selectedAirlineName;
+    _departureDateInputField.hidden = _flightNumberInputField.hidden || [_flightNumberString length] < 6;
+    
+    [_searchButton setTitle:kSelectAirline forState:UIControlStateNormal];
+    
+    if (!_flightNumberInputField.hidden) {
+        [_searchButton setTitle:kEnterFlightNumber forState:UIControlStateNormal];
+    }
+    
+    if (!_departureDateInputField.hidden) {
+        [_searchButton setTitle:kSelectDepartureDate forState:UIControlStateNormal];
+    }
+}
+
+#pragma mark - UITableViewDelegate/Datasource Methods
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_airlineMatches count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 54;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ALVAirlineTableViewCell *airlinesCell = [tableView dequeueReusableCellWithIdentifier:[ALVAirlineTableViewCell className] forIndexPath:indexPath];
+    airlinesCell.airlineText = [_airlineMatches objectAtIndex:indexPath.row];
+    return airlinesCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self selectedAirlineText:[_airlineMatches objectAtIndex:indexPath.row]];
+    [_airlineInputField.textField resignFirstResponder];
+}
+
+#pragma mark - UIDatePicker Selector Callback
+- (void)pickerSelectedDate:(UIDatePicker *)picker {
+    [self selectedDate:picker.date];
 }
 
 @end

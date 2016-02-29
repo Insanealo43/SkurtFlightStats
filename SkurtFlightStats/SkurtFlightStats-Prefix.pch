@@ -29,6 +29,7 @@
 // Classes
 #import "ALVNetworker.h"
 #import "ALVKeyboardObserver.h"
+#import "AirlinesManager.h"
 
 #endif
 

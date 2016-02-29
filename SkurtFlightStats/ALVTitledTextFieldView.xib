@@ -53,7 +53,7 @@
                         <constraint firstAttribute="width" secondItem="9wR-tE-6qX" secondAttribute="height" multiplier="305:22" id="VJe-SM-c69"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                             <color key="value" red="0.32549020649999999" green="0.32549020649999999" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>

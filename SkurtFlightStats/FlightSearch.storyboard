@@ -36,8 +36,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-Zy-YJi" customClass="ALVTitledTextFieldView">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="ycL-sR-M1r">
+                                <rect key="frame" x="0.0" y="64" width="375" height="550"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="58N-oC-ZKV" id="5pU-uN-d95"/>
+                                    <outlet property="delegate" destination="58N-oC-ZKV" id="iIY-RF-cXU"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-Gh-cUC" customClass="ALVTitledTextFieldView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.1019607843" green="0.48627450979999998" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="AIRLINE"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="What airline are you flying?"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textFieldTextColor">
+                                        <color key="value" red="0.32549020649999999" green="0.32549020649999999" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dIK-Zy-YJi" customClass="ALVTitledTextFieldView">
+                                <rect key="frame" x="0.0" y="118" width="375" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
@@ -50,6 +72,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5qe-um-vu9" customClass="ALVTitledTextFieldView">
+                                <rect key="frame" x="0.0" y="172" width="375" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.1019607843" green="0.48627450979999998" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DEPARTURE"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="When is your flight departing?"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textFieldTextColor">
+                                        <color key="value" red="0.32549020649999999" green="0.32549020649999999" blue="0.32549020649999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG5-og-ZhN" customClass="ALVButton">
                                 <rect key="frame" x="0.0" y="613" width="375" height="54"/>
                                 <color key="backgroundColor" red="0.38823529411764707" green="0.24705882352941178" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,7 +93,7 @@
                                     <constraint firstAttribute="height" constant="54" id="4jv-eR-YMx"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="Search Flights">
+                                <state key="normal" title="Select Airline">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -81,8 +117,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="ConstraintButtonBottomMargin" destination="UGV-aT-vDU" id="sOr-mL-XJ8"/>
+                        <outlet property="airlineInputField" destination="a9N-Gh-cUC" id="s8b-Aw-cBH"/>
+                        <outlet property="departureDateInputField" destination="5qe-um-vu9" id="bNZ-fl-nt2"/>
+                        <outlet property="flightNumberInputField" destination="dIK-Zy-YJi" id="FNB-xq-BgS"/>
                         <outlet property="searchButton" destination="vG5-og-ZhN" id="PQa-hS-umX"/>
-                        <outlet property="titledTextFieldView" destination="dIK-Zy-YJi" id="5Hl-9c-TkK"/>
+                        <outlet property="tableView" destination="ycL-sR-M1r" id="LfI-Ej-tOn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="257-8u-rCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
