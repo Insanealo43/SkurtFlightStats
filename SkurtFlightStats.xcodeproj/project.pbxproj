@@ -45,6 +45,7 @@
 		49DD8AD31C825CC000D8E33F /* SkurtAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD8AD01C825CC000D8E33F /* SkurtAppIcon.png */; };
 		49DD8AD41C825CC000D8E33F /* SkurtAppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD8AD11C825CC000D8E33F /* SkurtAppIcon@2x.png */; };
 		49DD8AD51C825CC000D8E33F /* SkurtAppIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49DD8AD21C825CC000D8E33F /* SkurtAppIcon@3x.png */; };
+		49E2B7631C86217300E874DD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 49E2B7621C86217300E874DD /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		49DD8AD01C825CC000D8E33F /* SkurtAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SkurtAppIcon.png; sourceTree = "<group>"; };
 		49DD8AD11C825CC000D8E33F /* SkurtAppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SkurtAppIcon@2x.png"; sourceTree = "<group>"; };
 		49DD8AD21C825CC000D8E33F /* SkurtAppIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SkurtAppIcon@3x.png"; sourceTree = "<group>"; };
+		49E2B7621C86217300E874DD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		93D76B7F16261C650F6824F3 /* Pods-SkurtFlightStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkurtFlightStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkurtFlightStats/Pods-SkurtFlightStats.debug.xcconfig"; sourceTree = "<group>"; };
 		9DD584836980F804066168CE /* libPods-SkurtFlightStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SkurtFlightStats.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -276,6 +278,7 @@
 				49C3A1CB1C823ED800F2F982 /* Info.plist */,
 				49C3A1C31C823ED800F2F982 /* SkurtFlightStats.xcdatamodeld */,
 				49DD8ABA1C82419600D8E33F /* SkurtFlightStats-Prefix.pch */,
+				49E2B7621C86217300E874DD /* Podfile */,
 				49C3A1C61C823ED800F2F982 /* Assets.xcassets */,
 			);
 			path = SkurtFlightStats;
@@ -529,6 +532,7 @@
 				49DD8AD41C825CC000D8E33F /* SkurtAppIcon@2x.png in Resources */,
 				49490EEA1C84ECC700C94E65 /* location_icon.png in Resources */,
 				49DD8AD51C825CC000D8E33F /* SkurtAppIcon@3x.png in Resources */,
+				49E2B7631C86217300E874DD /* Podfile in Resources */,
 				493FAC751C83BF0B00166D9C /* close_clear_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
