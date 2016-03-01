@@ -21,6 +21,7 @@
 static NSString *const kSelectAirline = @"Select Airline";
 static NSString *const kSelectDepartureDate = @"Select Departure Date";
 static NSString *const kEnterFlightNumber = @"Enter Flight Number";
+static NSString *const kSearchFlights = @"Search for Flights";
 
 static NSString *const DFSYearMonthDayNumbers = @"yyyy-MM-dd";
 
@@ -181,7 +182,6 @@ static const CGFloat kBorderHeight = 1.5;
         
     } else if ([currentTitle isEqualToString:kEnterFlightNumber]) {
         if ([_flightNumberInputField.textField isFirstResponder]) {
-            [_flightNumberInputField.textField.textChangeTimer invalidate];
             [self enteredFlightNumber:_flightNumberInputField.textField.text];
             [_flightNumberInputField.textField resignFirstResponder];
             
@@ -193,12 +193,33 @@ static const CGFloat kBorderHeight = 1.5;
         
     } else if ([currentTitle isEqualToString:kSelectDepartureDate]) {
         if ([_departureDateInputField.textField isFirstResponder]) {
-            
+            [_departureDateInputField.textField resignFirstResponder];
             
         } else {
             [_searchButton setTitle:kSelectDepartureDate forState:UIControlStateNormal];
             [_departureDateInputField textFieldShouldBecomeFirstResponder];
         }
+        
+    } else if ([currentTitle isEqualToString:kSearchFlights]) {
+        [[UIResponder firstResponder] resignFirstResponder];
+        
+        FlightStatsHTTPReqest *flightSearch = [[FlightStatsHTTPReqest alloc] init];
+        flightSearch.apiName = @"schedules"; // flight/carrier_code/flight_number/departing/year/month,day
+        flightSearch.requiredParams = [NSString stringWithFormat:@"flight/%@/%@/departing/%@",
+                                       [[AirlinesManager manager] airlineCodeForName:_selectedAirlineName],
+                                       _flightNumberString, [[_dateFormatter stringFromDate:_departureDate] stringByReplacingOccurrencesOfString:@"-" withString:@"/"]];
+        
+        [flightSearch fireWithCompletion:^{
+            NSLog(@"Response - %@", flightSearch.response);
+            NSArray *scheduledFlights = [flightSearch.response objectForKey:@"scheduledFlights"];
+            NSDictionary *lastLegFlight = [scheduledFlights lastObject];
+            
+            if (lastLegFlight) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Foung Flight" message:[NSString stringWithFormat:@"%@", lastLegFlight] preferredStyle:UIAlertControllerStyleAlert];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"OKAY" style:UIAlertActionStyleCancel handler:nil]];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
     }
 }
 
@@ -227,10 +248,17 @@ static const CGFloat kBorderHeight = 1.5;
     
     [self updateFields];
 }
+
+- (void)enteredDate:(NSDate *)departureDate {
+    _departureDate = departureDate;
+    _departureDateInputField.textField.text = [_dateFormatter stringFromDate:departureDate];
+    
+    [self updateFields];
+}
         
 - (void)updateFields {
     _flightNumberInputField.hidden = !_selectedAirlineName;
-    _departureDateInputField.hidden = _flightNumberInputField.hidden || [_flightNumberString length] < 6;
+    _departureDateInputField.hidden = _flightNumberInputField.hidden || [_flightNumberString length] == 0;
     
     [_searchButton setTitle:kSelectAirline forState:UIControlStateNormal];
     
@@ -240,6 +268,10 @@ static const CGFloat kBorderHeight = 1.5;
     
     if (!_departureDateInputField.hidden) {
         [_searchButton setTitle:kSelectDepartureDate forState:UIControlStateNormal];
+    }
+    
+    if (_selectedAirlineName && _flightNumberString && _departureDate) {
+        [_searchButton setTitle:kSearchFlights forState:UIControlStateNormal];
     }
 }
 
