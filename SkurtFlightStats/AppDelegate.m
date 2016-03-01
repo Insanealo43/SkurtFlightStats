@@ -8,15 +8,32 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
-
-@end
+static NSString *const kRubikFontName = @"RubikMonoOne-Regular";
+static const CGFloat kFontPointsize = 14;
+static const CGFloat kLetterSpacing = 8;
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Configure Window
+    [self.window setBackgroundColor:[UIColor whiteColor]];
+    [self.window makeKeyAndVisible];
+    
+    // Navigation Bar Appearence proxy
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [[UINavigationBar appearance] titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont fontWithName:kRubikFontName size:kFontPointsize] forKey:NSFontAttributeName];
+    [titleBarAttributes setValue:[UIColor colorFromHexString:ColorTitleTextHex] forKey:NSForegroundColorAttributeName];
+    [titleBarAttributes setValue:@(kLetterSpacing) forKey:NSKernAttributeName];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:titleBarAttributes];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
+    [[UINavigationBar appearance] setTranslucent:YES];
+    
+    // Load Keyboard Observer
+    [ALVKeyboardObserver singleton];
+    
     return YES;
 }
 
